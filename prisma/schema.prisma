@@ -1,0 +1,37 @@
+generator photon {
+  provider = "photonjs"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = "file:dev.db"
+}
+
+model Foo {
+  id String @id @default(cuid())
+  a  A[]
+}
+
+model A {
+  id   String  @id @default(cuid())
+  name String?
+  b    B[]
+}
+
+model B {
+  id String @id @default(cuid())
+  c  C
+}
+
+model C {
+  id String  @id @default(cuid())
+  d  D
+  v1 Int
+  v2 Boolean
+  v3 Boolean
+}
+
+model D {
+  id String @id @default(cuid())
+  c  C[]
+}
